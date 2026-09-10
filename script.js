@@ -33,13 +33,14 @@ function initViewer360() {
 
   if (!viewer || !img) return;
 
-  var FRAME_COUNT = 10;
+  var FRAME_COUNT = 15;
   var PATH = "images/360/tapis-";
 
   // A drag spanning this fraction of the viewer's own width completes one
   // full rotation. Deriving it from the element's rendered size (rather
   // than a fixed pixel value) keeps the feel consistent across phone and
-  // desktop widths, and compensates for having only 10 source photos.
+  // desktop widths, and compensates for having only FRAME_COUNT source
+  // photos rather than true continuous footage.
   var ROTATION_WIDTH_FACTOR = 0.75;
 
   var currentFrame = 1;
