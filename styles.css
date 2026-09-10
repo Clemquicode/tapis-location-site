@@ -426,9 +426,18 @@ a { color: inherit; }
   padding-top: 60px;
 }
 
+/* ---------- Product media (360 viewer + incline photo) ---------- */
+.product-media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
 /* ---------- 360 viewer ---------- */
 .viewer360-wrap {
-  margin: 0 0 56px;
+  margin: 0;
 }
 
 .viewer360 {
@@ -483,6 +492,30 @@ a { color: inherit; }
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
   text-shadow: 0 1px 3px rgba(6, 10, 6, 0.5);
+}
+
+/* ---------- Incline photo (floats the same way as the 360 viewer) ---------- */
+.incline-photo {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+}
+
+.incline-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 18px rgba(8, 14, 8, 0.4));
+}
+
+.incline-photo figcaption {
+  margin-top: 10px;
+  color: var(--snow-dim);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .feature-grid {
@@ -725,6 +758,10 @@ a { color: inherit; }
 @media (max-width: 800px) {
   .problem-grid { grid-template-columns: 1fr; }
   .feature-grid { grid-template-columns: 1fr; }
+  .product-media {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
   .pricing-grid {
     grid-template-columns: 1fr;
     max-width: 420px;
