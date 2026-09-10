@@ -319,6 +319,9 @@ a { color: inherit; }
 .section-dark .section-lead,
 .section-transition .section-lead { color: var(--snow-dim); }
 
+.section-light .section-lead,
+.section-contact .section-lead { color: var(--ink-soft); }
+
 /* Decorative treeline bands carrying the forest motif into sections below
    the hero, so the palette change doesn't read as a flat color swap */
 .section-decor {
@@ -547,15 +550,50 @@ a { color: inherit; }
 .section-light .kicker,
 .section-contact .kicker { color: var(--gold-dark); }
 
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 44px;
+  align-items: stretch;
+}
+
 .price-card {
-  max-width: 480px;
-  margin: 40px auto 0;
   background: linear-gradient(160deg, #ffffff 0%, var(--snow) 100%);
   border-radius: 20px;
-  padding: 44px 40px;
+  padding: 36px 28px;
   text-align: center;
   box-shadow: 0 20px 60px rgba(27, 36, 25, 0.1);
   border: 1px solid rgba(27, 36, 25, 0.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.price-card-featured {
+  border: 2px solid var(--gold);
+  box-shadow: 0 24px 70px rgba(27, 36, 25, 0.18);
+  transform: translateY(-10px);
+}
+
+.price-badge {
+  align-self: center;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin: 0 0 16px;
+}
+
+.price-plan {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 10px;
 }
 
 .price-main {
@@ -568,31 +606,29 @@ a { color: inherit; }
 
 .price-amount {
   font-family: var(--font-display);
-  font-size: 3.2rem;
+  font-size: 2.6rem;
   font-weight: 600;
   color: var(--ink);
   font-variant-numeric: tabular-nums;
 }
 
 .price-period {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--ink-soft);
 }
 
 .price-terms {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--ink-soft);
-  margin: 0 0 28px;
+  margin: 0 0 24px;
 }
+
+.price-card .btn { margin-top: auto; }
 
 .price-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 32px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  margin: 0;
 }
 
 .price-list li {
@@ -612,6 +648,17 @@ a { color: inherit; }
   border-radius: 50%;
   background: var(--gold);
 }
+
+.price-list-shared {
+  max-width: 680px;
+  margin: 44px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 32px;
+}
+
+.price-list-shared li { text-align: left; }
 
 /* Contact section */
 .section-contact { padding-bottom: 140px; }
@@ -691,6 +738,16 @@ a { color: inherit; }
 @media (max-width: 800px) {
   .problem-grid { grid-template-columns: 1fr; }
   .feature-grid { grid-template-columns: 1fr; }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .price-card-featured {
+    order: -1;
+    transform: none;
+  }
 }
 
 @media (max-width: 560px) {
@@ -698,4 +755,9 @@ a { color: inherit; }
   .hero { padding: 100px 0 60px; }
   .topnav { padding: 14px 18px; }
   .price-card { padding: 34px 24px; }
+  .price-list-shared {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 320px;
+  }
 }
