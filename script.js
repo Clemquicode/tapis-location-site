@@ -51,7 +51,7 @@ function initViewer360() {
   var pxPerFrame = 32;
 
   function framePath(n) {
-    return PATH + String(n).padStart(2, "0") + ".jpg";
+    return PATH + String(n).padStart(2, "0") + ".png";
   }
 
   // Preload all frames so dragging feels smooth from the first interaction.
