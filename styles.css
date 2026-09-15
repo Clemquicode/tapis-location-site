@@ -397,27 +397,21 @@ a { color: inherit; }
   opacity: 0.5;
 }
 
-/* "Pourquoi Sommet" story section — long-form prose laid out as a
-   two-column editorial spread (like a magazine article) so it fills the
-   full 1080px wrap the same way the grid sections do, rather than
-   sitting in an isolated narrow column with dead space beside it. Each
-   column keeps its own comfortable reading measure even though the
-   section as a whole reads full-width. No decorative treeline band
-   here: the hero already closes on one, and this section sits quietly
-   between it and the next band at the top of "Le problème" rather than
-   stacking a third. */
+/* "Pourquoi Sommet" story section — a narrative, personal text that
+   reads as one continuous flow, like a blog post: a single centered
+   column at a comfortable reading measure rather than split into
+   side-by-side blocks. No decorative treeline band here: the hero
+   already closes on one, and this section sits quietly between it and
+   the next band at the top of "Le problème" rather than stacking a
+   third. */
 .section-story { padding-top: 90px; }
 
 .story-text {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px 56px;
-}
-
-.story-col {
   display: flex;
   flex-direction: column;
   gap: 22px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .story-text p {
@@ -978,7 +972,6 @@ a { color: inherit; }
 @media (max-width: 800px) {
   .problem-grid { grid-template-columns: 1fr; }
   .feature-grid { grid-template-columns: 1fr; }
-  .story-text { grid-template-columns: 1fr; }
   .product-media {
     grid-template-columns: 1fr;
     gap: 40px;
