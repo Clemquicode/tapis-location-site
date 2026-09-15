@@ -130,13 +130,6 @@ function initFAQ() {
 
   if (!toggle || !panel || !backdrop) return;
 
-  // Above this width the panel is a permanently visible sidebar (see the
-  // matching min-width query in styles.css) and the toggle/backdrop are
-  // hidden, so open/close never runs there. If the drawer was left open
-  // and the viewport is then resized past that point, clear the locked
-  // scroll and stale state rather than leaving the page stuck.
-  var wideQuery = window.matchMedia("(min-width: 1560px)");
-
   function openPanel() {
     panel.classList.add("is-open");
     backdrop.classList.add("is-open");
@@ -175,10 +168,6 @@ function initFAQ() {
       closePanel();
       toggle.focus();
     }
-  });
-
-  wideQuery.addEventListener("change", function (event) {
-    if (event.matches) closePanel();
   });
 
   var questions = panel.querySelectorAll(".faq-question");
