@@ -24,7 +24,14 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* Responsive base size: 16px on phones, scaling up to 19px on wide
+   desktop monitors so every rem-based size in the site (body copy,
+   headings, labels) grows together instead of staying pinned to the
+   mobile-tuned 16px baseline on large screens. */
+html {
+  scroll-behavior: smooth;
+  font-size: clamp(16px, 0.28vw + 15px, 19px);
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -48,7 +55,7 @@ body {
     #f5f8f2 96%,
     #f5f8f2 100%
   );
-  line-height: 1.5;
+  line-height: 1.55;
   position: relative;
 }
 
@@ -232,7 +239,7 @@ a { color: inherit; }
 .hero h1 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  font-size: clamp(2.2rem, 5.5vw, 4.1rem);
   line-height: 1.1;
   margin: 0 0 22px;
   color: #fff;
@@ -240,10 +247,10 @@ a { color: inherit; }
 }
 
 .hero-sub {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--snow-dim);
   margin: 0 auto 34px;
-  max-width: 540px;
+  max-width: 560px;
 }
 
 .hero-actions {
@@ -301,7 +308,7 @@ a { color: inherit; }
 .section h2 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-size: clamp(1.7rem, 4vw, 2.85rem);
   line-height: 1.2;
   margin: 0 0 20px;
   max-width: 720px;
@@ -311,8 +318,8 @@ a { color: inherit; }
 .section-dark h2 { color: #fff; }
 
 .section-lead {
-  font-size: 1.05rem;
-  max-width: 620px;
+  font-size: 1.15rem;
+  max-width: 640px;
   margin: 0 0 48px;
 }
 
@@ -415,7 +422,7 @@ a { color: inherit; }
 
 .story-text p {
   margin: 0;
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   line-height: 1.75;
   color: rgba(245, 248, 242, 0.82);
 }
@@ -438,7 +445,7 @@ a { color: inherit; }
 .problem-item .num {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: var(--gold);
   margin-bottom: 14px;
 }
@@ -446,7 +453,8 @@ a { color: inherit; }
 .problem-item p {
   margin: 0;
   color: rgba(245, 248, 242, 0.82);
-  font-size: 0.98rem;
+  font-size: 1.04rem;
+  line-height: 1.6;
 }
 
 /* Solution section */
@@ -573,7 +581,7 @@ a { color: inherit; }
 
 .feature-card h3 {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.22rem;
   font-weight: 600;
   margin: 0 0 10px;
   color: #fff;
@@ -581,7 +589,8 @@ a { color: inherit; }
 
 .feature-card p {
   margin: 0;
-  font-size: 0.94rem;
+  font-size: 1rem;
+  line-height: 1.6;
   color: rgba(245, 248, 242, 0.75);
 }
 
@@ -632,7 +641,7 @@ a { color: inherit; }
 
 .price-plan {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   font-weight: 600;
   color: var(--ink);
   margin: 0 0 10px;
@@ -648,19 +657,19 @@ a { color: inherit; }
 
 .price-amount {
   font-family: var(--font-display);
-  font-size: 2.6rem;
+  font-size: 2.75rem;
   font-weight: 600;
   color: var(--ink);
   font-variant-numeric: tabular-nums;
 }
 
 .price-period {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--ink-soft);
 }
 
 .price-terms {
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   color: var(--ink-soft);
   margin: 0 0 24px;
 }
@@ -674,7 +683,8 @@ a { color: inherit; }
 }
 
 .price-list li {
-  font-size: 0.95rem;
+  font-size: 1.01rem;
+  line-height: 1.5;
   color: var(--ink);
   padding-left: 26px;
   position: relative;
@@ -720,7 +730,7 @@ a { color: inherit; }
 }
 
 .field label {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--ink);
 }
@@ -728,7 +738,7 @@ a { color: inherit; }
 .field input,
 .field textarea {
   font-family: var(--font-body);
-  font-size: 0.98rem;
+  font-size: 1.04rem;
   padding: 13px 16px;
   border-radius: 10px;
   border: 1px solid rgba(27, 36, 25, 0.18);
@@ -758,7 +768,7 @@ a { color: inherit; }
 .form-success p {
   margin: 0;
   color: var(--ink);
-  font-size: 0.98rem;
+  font-size: 1.04rem;
 }
 
 /* ---------- Footer ---------- */
@@ -959,7 +969,7 @@ a { color: inherit; }
 .faq-answer p {
   margin: 0 0 18px;
   padding-right: 2px;
-  font-size: 0.96rem;
+  font-size: 1rem;
   line-height: 1.65;
   color: var(--snow-dim);
 }
