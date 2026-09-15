@@ -390,6 +390,27 @@ a { color: inherit; }
   opacity: 0.5;
 }
 
+/* "Pourquoi Sommet" story section — long-form prose, so it gets its own
+   narrower measure and looser rhythm rather than the card-grid treatment
+   used elsewhere. No decorative treeline band here: the hero already
+   closes on one, and this section sits quietly between it and the next
+   band at the top of "Le problème" rather than stacking a third. */
+.section-story { padding-top: 90px; }
+
+.story-text {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 34rem;
+}
+
+.story-text p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: rgba(245, 248, 242, 0.82);
+}
+
 /* Problem section */
 .problem-grid {
   display: grid;
