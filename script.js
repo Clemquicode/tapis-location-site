@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   initContactForm();
   initViewer360();
+  initFAQ();
 });
 
 function initContactForm() {
@@ -118,5 +119,75 @@ function initViewer360() {
       setFrame(currentFrame - 1);
       event.preventDefault();
     }
+  });
+}
+
+function initFAQ() {
+  var toggle = document.getElementById("faq-toggle");
+  var panel = document.getElementById("faq-panel");
+  var backdrop = document.getElementById("faq-backdrop");
+  var closeBtn = document.getElementById("faq-close");
+
+  if (!toggle || !panel || !backdrop) return;
+
+  // Above this width the panel is a permanently visible sidebar (see the
+  // matching min-width query in styles.css) and the toggle/backdrop are
+  // hidden, so open/close never runs there. If the drawer was left open
+  // and the viewport is then resized past that point, clear the locked
+  // scroll and stale state rather than leaving the page stuck.
+  var wideQuery = window.matchMedia("(min-width: 1560px)");
+
+  function openPanel() {
+    panel.classList.add("is-open");
+    backdrop.classList.add("is-open");
+    toggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+    var firstQuestion = panel.querySelector(".faq-question");
+    if (firstQuestion) firstQuestion.focus();
+  }
+
+  function closePanel() {
+    panel.classList.remove("is-open");
+    backdrop.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  toggle.addEventListener("click", function () {
+    if (panel.classList.contains("is-open")) {
+      closePanel();
+    } else {
+      openPanel();
+    }
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      closePanel();
+      toggle.focus();
+    });
+  }
+
+  backdrop.addEventListener("click", closePanel);
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && panel.classList.contains("is-open")) {
+      closePanel();
+      toggle.focus();
+    }
+  });
+
+  wideQuery.addEventListener("change", function (event) {
+    if (event.matches) closePanel();
+  });
+
+  var questions = panel.querySelectorAll(".faq-question");
+  questions.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var item = button.closest(".faq-item");
+      var expanded = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!expanded));
+      item.classList.toggle("is-expanded", !expanded);
+    });
   });
 }
